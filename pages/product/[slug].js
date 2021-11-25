@@ -12,13 +12,14 @@ import {
   ListItem,
   Typography,
 } from '@material-ui/core';
+import data from '../../utils/data';
 import useStyles from '../../utils/style';
 
-export default function ProductScreen({ data }) {
+export default function ProductScreen() {
   const classes = useStyles();
   const router = useRouter();
   const { slug } = router.query;
-  const product = data.products.find((a) => a.sluug === slug);
+  const product = data.products.find((a) => a.slug === slug);
   if (!product) {
     return <div>Product Not Found</div>;
   }
@@ -91,7 +92,7 @@ export default function ProductScreen({ data }) {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button fullWidth variant="container" color="primary">
+                <Button fullWidth variant="contained" color="primary">
                   Add to cart
                 </Button>
               </ListItem>
